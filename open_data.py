@@ -5,7 +5,7 @@ def reckon_file(path:str):
     # Important list contain converted to finaly list.
     main_list = []
     list_rows = []
-    with open(path) as file:
+    with open(path, encoding='utf-8') as file:
         list_rows = file.read().splitlines()
         for index in range(len(list_rows)):
             # Check periods. 

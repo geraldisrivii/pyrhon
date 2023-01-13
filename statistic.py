@@ -2,7 +2,7 @@ import json
 def get_data_week(count_days:int):
     'Allow get sum few data of 7 or less count of files. Less 7 just when nessesary count files is not existing.'
     # Open file with programm data for check count existing files.
-    with open('files/programm_data.json') as file:
+    with open('files/programm_data.json', encoding='utf-8') as file:
         programm_dict = json.load(file)
         if(count_days > len(programm_dict["Existing_files"])):
             print("given quantity files out of range existing files. But will returned value of max existing days. ")
@@ -14,7 +14,7 @@ def get_data_week(count_days:int):
             if(file_index + 1 == len(programm_dict["Existing_files"]) - count_days):
                 break
             else:
-                with open(f"files/{file_index}.json") as main_file:
+                with open(f"files/{file_index}.json", encoding='utf-8') as main_file:
                     main_dicionary = json.load(main_file)
                     # get periods struct of json file. 
                     for period_index in range(len(main_dicionary)):
@@ -25,3 +25,14 @@ def get_data_week(count_days:int):
                         except:
                             continue
         return amount_learning_time, mental_work
+def get_activites_on_periods(activites_data:dict):
+    first_period, second_period, third_period = [], [], []
+    for key, value in activites_data.items():
+        if(str(key[-1]).isdigit() and int(key[-1]) > 0 and int(key[-1]) < 4):
+            if(int(key[-1]) == 1):
+                first_period.append({key:value})
+            if(int(key[-1]) == 2):
+                second_period.append({key:value})
+            if(int(key[-1]) == 3):
+                third_period.append({key:value})
+    return first_period, second_period, third_period
