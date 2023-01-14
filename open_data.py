@@ -28,8 +28,9 @@ def update_data(programm_data:str):
     'Check update files, if datatime of last edit file is not equals datatime in programm_data.json -> file was changed. Return list of updated objects of updated files.'
     update_lists = []
     for i in range(len(programm_data["Existing_files"]) - 1):
-        time_sec = os.path.getctime(f"files/{i + 1}.txt")
-        if(programm_data['Existing_files_time'][f'{i + 1}.txt'] == str(datetime.datetime.fromtimestamp(time_sec))):
+        time_sec = os.path.getmtime(f"files/{i + 1}.txt")
+        time_in_data_time = str(datetime.datetime.fromtimestamp(time_sec))
+        if(programm_data['Existing_files_time'][f'{i + 1}.txt'] == time_in_data_time):
             continue
         else:
             update_list = reckon_file(f"files/{i + 1}.txt")
