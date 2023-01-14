@@ -8,6 +8,8 @@ def reckon_file(path:str):
     with open(path, encoding='utf-8') as file:
         list_rows = file.read().splitlines()
         for index in range(len(list_rows)):
+            if(index == 0):
+                list_rows[index] = list_rows[index][-1]
             # Check periods. 
             if(list_rows[index].isdigit()):
                 main_list.append({})
