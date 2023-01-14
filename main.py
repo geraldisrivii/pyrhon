@@ -20,8 +20,7 @@ with open('files/activites_data.json', encoding='utf-8') as file_activitys:
         save_data.save(f"files/programm_data.json", programm_data)
         # Create a new json file of day, if txt file in that day is existing.
         main_list = []
-        programm_data, main_list, IsExisiting = open_data.create_file_of_new_day(
-            programm_data)
+        programm_data, main_list, IsExisiting = open_data.create_file_of_new_day(programm_data)
         save_data.save(f"files/programm_data.json", programm_data)
         # Save data from new json file or print message which writed in what file is not existing.
         if (IsExisiting == True):
