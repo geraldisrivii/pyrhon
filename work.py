@@ -1,10 +1,10 @@
 import json
-def update_limits(programm_data) -> dict:
+def update_limits(programm_data, path) -> dict:
     'Return updated limits of files in programm_data wich is accepted in arguments'
     # Assign name for file of new day f'{i + 2}': int(next_limit)
     programm_data['limits_for_files'][f'{1}'] = programm_data['limit']
     for i in range(len(programm_data['Existing_files']) - 1):
-        with open(f'files/{i + 1}.json', encoding='utf-8') as json_file:
+        with open(f'{path}/{i + 1}.json', encoding='utf-8') as json_file:
             previous_object = json.load(json_file)
             work_perform = 0
             mental_work = 0
