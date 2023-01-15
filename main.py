@@ -35,7 +35,10 @@ with open(f'{path}/activites_data.json', encoding='utf-8') as file_activitys:
                 f"File with name - {max(programm_data['Existing_files']) + 1} is't existing.")
         # Save programm_data.
         save_data.save(f"{path}/programm_data.json", programm_data)
-        print("Тебе нужно примимать высокоуглеводную пищу.")
+        with open(f"{path}/remembers.json") as remembers_file:
+            remembers = list(json.load(remembers_file))
+            for remember in remembers:
+                print(remember)
         # User part
     while True:
         inp = input()
