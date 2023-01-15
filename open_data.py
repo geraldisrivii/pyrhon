@@ -24,7 +24,7 @@ def reckon_file(path:str):
                     else:
                         main_list[len(main_list) - 1][(list_rows[index].strip())[:index_word]] = ((list_rows[index].strip())[index_word + 1:].strip())
                 except IndexError:
-                    print(f"Row with index: {index} in file on this path: {path} haven't value.")
+                    pass
     return main_list
 def update_data(programm_data:str):
     'Check update files, if datatime of last edit file is not equals datatime in programm_data.json -> file was changed. Return list of updated objects of updated files.'
