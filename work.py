@@ -14,10 +14,11 @@ def update_limits(programm_data, path) -> dict:
                     mental_work += int(period['когнитивная_нагрузка'])
                 except KeyError:
                     continue
+            next_limit = int((programm_data['limits_for_files'][f'{i + 1}'] - (work_perform - programm_data['limits_for_files'][f'{i + 1}'])) - mental_work * 0.5)
             if (work_perform <= programm_data['limits_for_files'][f'{i + 1}'] and mental_work < programm_data['limit_mental_work']):
                 next_limit = programm_data['limit']
-            else:
-                next_limit = int((programm_data['limits_for_files'][f'{i + 1}'] - (work_perform - programm_data['limits_for_files'][f'{i + 1}'])) - mental_work * 0.5)
+            elif(next_limit < 0):
+                next_limit = 0
             amount = i + 2
             programm_data['limits_for_files'][f'{amount}'] = next_limit
     return programm_data

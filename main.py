@@ -47,9 +47,10 @@ with open(f'{path}/activites_data.json', encoding='utf-8') as file_activitys:
         elif(inp == "wt"):
             print("How much days need to print??")
             days_for_get_data = int(input())
-            print(statistic.get_data_week(days_for_get_data, path=path))
+            learning_time, mental_work = statistic.get_data_week(days_for_get_data, path=path)
+            print(f"Learning time from accept days: {learning_time}, other mental work: {mental_work}")
         elif(inp == "l"):
-            print(programm_data['limits_for_files'][f"{len(programm_data['limits_for_files'])}"])
+            print(abs(programm_data['limits_for_files'][f"{len(programm_data['limits_for_files'])}"]))
         elif(inp == "add_act"):
             print("Input name your activity.")
             name = input()
