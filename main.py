@@ -64,3 +64,9 @@ with open(f'{path}/activites_data.json', encoding='utf-8') as file_activitys:
             for period, list in dict(activites_data).items():
                 print(period)
                 print(*list, sep = "\n")
+                
+                
+                
+                
+                
+      
