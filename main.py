@@ -4,10 +4,7 @@ import statistic
 import save_data
 import work
 # Get sorted and edit to json format (dict - python), list, which contain info from user file.]
-path = ""
-with open('programm.json', encoding='utf-8') as programm_file:
-    programm = json.load(programm_file)
-    path = programm["Path"]
+path = "files"
 with open(f'{path}/activites_data.json', encoding='utf-8') as file_activitys:
     activites_data = json.load(file_activitys)
     with open(f'{path}/programm_data.json', encoding='utf-8') as file_programm:
