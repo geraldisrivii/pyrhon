@@ -25,3 +25,13 @@ def get_data_week(count_days:int, path:str):
                         except:
                             continue
         return amount_learning_time, mental_work
+def match_act_day(activites_data:list, object:list):
+    dictionary = {}
+    for i in range(len(activites_data)):
+        if(len(activites_data[i]) > 0):
+            for key, value in activites_data[i].items():
+                try:
+                    dictionary[key] += {"period": i, "value": value}
+                except:
+                    dictionary[key] = {"period": i, "value": value}
+    print(dictionary)

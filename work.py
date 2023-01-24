@@ -1,6 +1,4 @@
 import json
-
-
 def update_limits(programm_data, path) -> dict:
     'Return updated limits of files in programm_data wich is accepted in arguments'
     # Assign name for file of new day f'{i + 2}': int(next_limit)
@@ -29,9 +27,6 @@ def update_limits(programm_data, path) -> dict:
     return programm_data
 
 
-def add_activity(activites_data: dict, name, value, period):
-    'Add activity from dictionary of activites_data.'
-    list_1 = []
-    list_1.append({name: value})
-    activites_data[period] += list_1
+def add_act(activites_data:list, name:str, value:int, period:int):
+    activites_data[int(period) - 1][name] = value
     return activites_data
