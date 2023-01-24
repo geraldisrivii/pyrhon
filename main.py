@@ -67,5 +67,9 @@ with open(f'{path}/activites_data.json', encoding='utf-8') as file_activitys:
             save_data.save(f'{path}/activites_data.json', activites_data)
         elif (inp == "p_act"):
             with open(f'{path}/{programm_data["Existing_files"][-1]}.json') as last_file:
-                object_file =  json.load(last_file)
-                statistic.match_act_day(object=object_file, activites_data=activites_data)
+                object_file = json.load(last_file)
+                list = statistic.match_act_day(
+                    object=object_file, activites_data=activites_data)
+                for element in list:
+                    for element1 in element:
+                        print(*element1)
